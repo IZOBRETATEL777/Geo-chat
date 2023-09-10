@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("MainActivity", "onCreate: " + currentLocation);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Chat in " + currentLocation); // Set a custom title
         activity_main = findViewById(R.id.activity_main);
-        currentName = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName();
         sendBtn = findViewById(R.id.btnSend);
         PreferenceManager.setDefaultValues(this, R.xml.root_preferences, false);
         sp.edit().putString("name", currentName).apply();
@@ -82,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             Snackbar.make(activity_main, "You are authorized", Snackbar.LENGTH_LONG).show();
+            currentName = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName();
             displayAllMessages();
         }
         ActionBar actionBar = getSupportActionBar();
@@ -103,6 +103,11 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (item.getItemId() == R.id.action_open_settings) {
                 Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                return true;
+            }
+            else if (item.getItemId() == R.id.action_open_current_location) {
+                Intent intent = new Intent(this, CurrentLocationActivity.class);
                 startActivity(intent);
                 return true;
             }
