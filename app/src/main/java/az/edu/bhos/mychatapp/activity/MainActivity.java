@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity {
 
         popupMenu.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.action_open_maps) {
-                openGoogleMapsToSelectCity();
+                Intent intent = new Intent(this, LocationSelectionActivity.class);
+                startActivityForResult(intent, REQUEST_CODE_SELECT_CITY);
                 return true;
             }
             else if (item.getItemId() == R.id.action_open_settings) {
@@ -108,19 +109,13 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (item.getItemId() == R.id.action_open_current_location) {
                 Intent intent = new Intent(this, CurrentLocationActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE_SELECT_CITY);
                 return true;
             }
             return false;
         });
         popupMenu.show();
     }
-
-    private void openGoogleMapsToSelectCity() {
-        Intent intent = new Intent(this, LocationSelectionActivity.class);
-        startActivityForResult(intent, REQUEST_CODE_SELECT_CITY);
-    }
-
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

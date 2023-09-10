@@ -32,6 +32,7 @@ public class CurrentLocationActivity extends AppCompatActivity implements Locati
     private GoogleMap googleMap;
     private MapView mapView;
     private TextView recommended_city;
+    private String recommendedLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,13 @@ public class CurrentLocationActivity extends AppCompatActivity implements Locati
 
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+
+        recommended_city.setOnClickListener(v -> {
+            if (recommendedLocation != null) {
+                setResult(RESULT_OK, getIntent().putExtra("selected_city", recommendedLocation));
+                finish();
+            }
+        });
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -87,7 +95,7 @@ public class CurrentLocationActivity extends AppCompatActivity implements Locati
 
             String recommendedText = "Recommended chatroom: " + cityName;
             recommended_city.setText(recommendedText);
-
+            recommendedLocation = cityName;
             googleMap.clear();
             googleMap.addMarker(new MarkerOptions().position(latLng).title("Current Location"));
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
