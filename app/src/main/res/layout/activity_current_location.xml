@@ -8,10 +8,16 @@
     android:orientation="vertical"
     tools:context=".activity.LocationSelectionActivity">
 
+    <TextView
+        android:id="@+id/recommended_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
     <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+        android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:liteMode="true"
-    tools:context=".activity.LocationSelectionActivity" />
+        tools:context=".activity.LocationSelectionActivity" />
 </LinearLayout>

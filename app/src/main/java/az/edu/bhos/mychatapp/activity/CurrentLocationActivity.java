@@ -1,11 +1,14 @@
 package az.edu.bhos.mychatapp.activity;
 
+import static az.edu.bhos.mychatapp.util.LocationUtils.getCityNameFromCoordinates;
+
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,13 +31,16 @@ public class CurrentLocationActivity extends AppCompatActivity implements Locati
     private LocationManager locationManager;
     private GoogleMap googleMap;
     private MapView mapView;
+    private TextView recommended_city;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_location);
 
-        mapView = findViewById(R.id.mapView);
+        mapView = findViewById(R.id.map_view);
+        recommended_city = findViewById(R.id.recommended_city);
+
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
@@ -70,19 +76,26 @@ public class CurrentLocationActivity extends AppCompatActivity implements Locati
     }
 
     @Override
-    public void onLocationChanged(Location location) {
-        if (location != null && googleMap != null) {
+    public void onLocationChanged(@NonNull Location location) {
+        if (googleMap != null) {
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
 
             LatLng latLng = new LatLng(latitude, longitude);
+
+            String cityName = getCityNameFromCoordinates(this, latitude, longitude);
+
+            String recommendedText = "Recommended chatroom: " + cityName;
+            recommended_city.setText(recommendedText);
+
             googleMap.clear();
             googleMap.addMarker(new MarkerOptions().position(latLng).title("Current Location"));
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
         }
     }
+
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
         this.googleMap = googleMap;
     }
 
