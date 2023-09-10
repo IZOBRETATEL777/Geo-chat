@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <EditTextPreference
+        android:defaultValue=""
+        android:icon="@drawable/baseline_person_24"
+        android:inputType="text"
+        android:key="name"
+        android:singleLine="true"
+        android:summary="Change your name"
+        android:title="Edit Name" />
+
+    <Preference
+        android:icon="@drawable/baseline_location_on_24"
+        android:inputType="text"
+        android:key="location"
+        android:singleLine="true"
+        android:summary="Change your default location"
+        android:title="Default location" />
+
+    <PreferenceCategory
+        android:key="device_info"
+        android:title="Device Info"
+        app:enabled="false">
+        <Preference
+            android:key="network_status"
+            android:title="Network status"
+            android:icon="@drawable/baseline_network_check_24"/>
+        <Preference
+            android:key="temperature"
+            android:title="Device temperature"
+            android:icon="@drawable/baseline_battery_saver_24"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="about"
+        android:title="About"
+        android:enabled="false">
+        <Preference
+            android:key="version"
+            android:title="Version"
+            android:summary="1.0.0"
+            android:icon="@drawable/baseline_developer_mode_24"/>
+        <Preference
+            android:key="author"
+            android:title="Author"
+            android:summary="Roman Tolstosheyev"
+            android:icon="@drawable/baseline_directions_run_24"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
