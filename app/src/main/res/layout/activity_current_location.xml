@@ -12,7 +12,12 @@
         android:id="@+id/recommended_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map_view"
