@@ -6,6 +6,11 @@
         android:title="Change location"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_open_current_location"
+        android:title="Open current location in Maps"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_open_settings"
-        android:title="Settings" />
+        android:title="Settings"
+        app:showAsAction="ifRoom" />
 </menu>
