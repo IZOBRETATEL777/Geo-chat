@@ -18,15 +18,7 @@ public class LocationUtils {
             List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
             if (!addresses.isEmpty()) {
                 Address address = addresses.get(0);
-
-                // Extract the city name from the address
                 cityName = address.getLocality();
-
-                // You can also get more specific address details if needed, like postal code, country, etc.
-                // String postalCode = address.getPostalCode();
-                // String country = address.getCountryName();
-                // ...
-
             }
         } catch (IOException e) {
             e.printStackTrace();
