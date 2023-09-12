@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        currentName = sp.getString("name", "Anonymous");
+        currentName =  Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName();
         displayAllMessages();
     }
 }
