@@ -1,10 +1,13 @@
-# ![logo.png](docs%2Flogo.png) Geo Chat Mobile Messenger
+# <img alt="logo.png" height="60" src="docs%2Flogo.png" width="60"/> Geo Chat Mobile Messenger
+---
+<p align="center">
+  <img alt="workflow_1.gif" src="docs%2Fworkflow_1.gif"/>
+  <br>
+  <i>Connecting despite the distances. Collaborating by common interests.</i>
+</p>
 
-![workflow_1.gif](docs%2Fworkflow_1.gif)
-
+---
 ## Description
-
-Connecting despite the distances. Collaborating by common interests.
 
 Geo Chat is a mobile application with messenger functionalities that connect people of the same geographic area. People of the same city, village or even a street can become friends and chat or just share important information.
 
@@ -31,7 +34,7 @@ Some interesting features:
 
 The application is written according to some best security practices in terms of coding and user interaction:
 
-- General Data Protection Regulation (EU GDPR) policies are enforced in data storage: database server located in EU zone: [https://europa.eu/youreurope/business/dealing-with-customers/data-protection/data-protection-gdpr/index\_en.htm](https://europa.eu/youreurope/business/dealing-with-customers/data-protection/data-protection-gdpr/index_en.htm)
+- General Data Protection Regulation (EU GDPR) policies are enforced in data storage: database server located in EU zone (Belgium): [https://europa.eu/youreurope/business/dealing-with-customers/data-protection/data-protection-gdpr/index\_en.htm](https://europa.eu/youreurope/business/dealing-with-customers/data-protection/data-protection-gdpr/index_en.htm)
 - Data encryption is implemented, so that user data is encrypted on the database server.
 - An independent Authentication provider is used (Firebase Auth). Data is stored in Android Keychain.
 - API-keys storage using gradle-secrets plugin: [https://developers.google.com/maps/documentation/android-sdk/secrets-gradle-plugin](https://developers.google.com/maps/documentation/android-sdk/secrets-gradle-plugin)
@@ -44,7 +47,7 @@ Main
 Activities:
 
 - All activities are interconnected and relevant for application needs.
-- 4 activities. See az/edu/bhos/mychatapp/activity folder
+- 4 activities. See [activity](https://github.com/IZOBRETATEL777/Geo-chat/tree/master/app/src/main/java/az/edu/bhos/mychatapp/activity).
 - CurrentLocationActivity sends "selected\_city" value to the MainActivity
 - SettingsActivity is working with Shared Preferences and send "location" to the MainAcitvity
 
@@ -69,10 +72,11 @@ Extra
 
 ## Screenshots
 
-![Screenshot_1.png](docs%2FScreenshot_1.png)
-![Screenshot_2.png](docs%2FScreenshot_2.png)
-![Screenshot_3.png](docs%2FScreenshot_3.png)
-![Screenshot_4.png](docs%2FScreenshot_4.png)
+<img alt="Screenshot_1.png" height="420" src="docs%2FScreenshot_1.png" width="240"/>
+<img alt="Screenshot_2.png" height="420" src="docs%2FScreenshot_2.png" width="240"/>
+<img alt="Screenshot_3.png" height="420" src="docs%2FScreenshot_3.png" width="240"/>
+<img alt="Screenshot_4.png" height="420" src="docs%2FScreenshot_4.png" width="240"/>
+<img alt="Screenshot_5.png" height="420" src="docs%2FScreenshot_5.png" width="240"/>
 
 ## Links
 
