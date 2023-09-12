@@ -112,6 +112,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_SELECT_CITY);
                 return true;
             }
+            else if (item.getItemId() == R.id.action_logout) {
+                AuthUI.getInstance().signOut(this);
+                finish();
+                return true;
+            }
             return false;
         });
         popupMenu.show();
@@ -179,7 +184,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        currentName =  Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName();
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            currentName = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName();
+        }
         displayAllMessages();
     }
 }
